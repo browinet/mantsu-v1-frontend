@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
 import Banner from "../components/Banner";
@@ -9,25 +9,25 @@ function Home() {
   const [bookCollection, setBookCollection] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const { bookpage } = useParams();
   useEffect(() => {
     axios
-      .get(`https://mantsu-v0-api.onrender.com/api/booklist/`)
+      .get(`/api/booklist`)
       .then((response) => {
         setBookCollection(response.data);
         setLoading(false);
       })
       .catch((error) => {
         setLoading(false);
-        setError(error.message);
+        setError(`Error: ${error.message} - ${error.response?.data?.message}`);
       });
-  }, [loading]);
+  }, [bookpage]);
   if (loading) {
     return <div>Loading...</div>;
   }
 
   if (error) {
-    return <div>HomePage Error: {error}</div>;
+    return <div>Error: {error}</div>;
   }
   return (
     <div className="home-page">
