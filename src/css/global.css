@@ -1,0 +1,511 @@
+/* --------------------------------- Global --------------------------------- */
+:root {
+  --primary: #741313;
+  --secondary: #f4f4f4;
+
+  --bg-white: rgb(255, 255, 255);
+  --bg-color: #f1f3f7;
+
+  --color-black: #1a1a1b;
+  --color-white: var(--secondary);
+
+  --shadow-box: 4px 4px px;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+body {
+  background-color: var(--bg-color);
+  font-family: "Montserrat", sans-serif;
+  color: var(--color-black);
+
+  margin: 0px;
+  overflow: auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 1440px;
+  min-height: 100vh;
+  margin: auto;
+}
+.full-bleed {
+  box-shadow: 0 0 0 100vmax var(--primary);
+  clip-path: inset(0 -100vmax);
+}
+
+.content-container {
+  flex-grow: 2;
+  margin: 20px 0;
+  padding: 0 10px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 20px;
+}
+
+p {
+  font: 16px;
+}
+h4 {
+  font-size: 0.875rem;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+/* ---------------------------- Component: Banner --------------------------- */
+.banner-container {
+  height: 240px;
+  width: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.banner {
+  display: flex;
+  background-color: rgba(11, 11, 11, 0.377);
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.banner p {
+  background-color: var(--secondary);
+  padding: 10px;
+  color: var(--primary);
+  font-size: 1.75rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 16px;
+}
+.banner p:hover {
+  background-color: var(--primary);
+  padding: 10px;
+  color: var(--color-white);
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+/* --------------------- Component: BookPage_Left Panel --------------------- */
+.left-panel {
+  background-color: var(--bg-white);
+  display: flex;
+  padding: 10px;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.bookpage-cover {
+  min-width: 300px;
+  height: 300px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0px 40px;
+}
+/* -------------------- Component: BookPage_Middle Panel -------------------- */
+.middle-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--bg-color);
+}
+.mp-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--bg-white);
+  border-radius: 5px;
+  gap: 10px;
+}
+/* --------------------- Component: BookPage_Right Panel -------------------- */
+.right-panel {
+  background-color: var(--bg-white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 20px;
+}
+.rp-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.comment-name-box {
+  width: 100%;
+}
+.comment-box {
+  width: 100%;
+  height: 200px;
+}
+
+.posted-comment {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+}
+.comment-container {
+  display: flex;
+  flex-direction: column;
+
+  padding: 10px;
+}
+.comment-name {
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 30px;
+  background-color: var(--secondary);
+}
+.comment {
+  line-height: 1.6;
+}
+/* ---------------------------- Component: Footer --------------------------- */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 0.875rem;
+  color: var(--color-white);
+  text-align: center;
+  background-color: var(--primary);
+  height: 50px;
+  width: 100%;
+}
+/* ----------------------------- Component: Logo ---------------------------- */
+.logo svg {
+  width: 80%;
+}
+.logo-color-1 {
+  fill: var(--color-black);
+}
+.logo-color-2 {
+  fill: var(--primary);
+}
+
+/* ---------------------------- Component: Navbar --------------------------- */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 45px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: var(--bg-color);
+  padding: 20px 10px 20px 10px;
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+.bar {
+  background-color: var(--primary);
+  width: 45px;
+  height: 3px;
+  border-radius: 20px;
+}
+
+.nav-desktop-menu {
+  align-self: center;
+  justify-content: flex-end;
+}
+
+.nav-desktop-menu ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+.nav-desktop-menu ul li {
+  font-size: 30px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--primary);
+  transition: 0.3s ease-out;
+}
+
+.nav-desktop-menu ul li .active {
+  font-weight: 600;
+}
+/* ----------------------- Component: VolumeCollection ---------------------- */
+.collection {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  height: 100%;
+  padding: 16px;
+}
+.collection h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-align: center;
+  text-transform: uppercase;
+}
+.collection-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.book-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: var(--primary);
+  border-radius: 8px;
+  padding: 10px;
+  width: 170px;
+  height: 350px;
+  text-align: center;
+}
+
+.book-card h3 {
+  color: var(--color-white);
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: underline;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 20px 5px 5px 5px;
+}
+
+.book-card p {
+  color: var(--color-white);
+  padding: 5px;
+}
+.book-card button {
+  text-decoration: none;
+  border: center;
+  text-transform: uppercase;
+  padding: 8px;
+  margin: 10px;
+}
+.book-cover {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 8px 8px 0 0;
+}
+.book-type-price {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.book-type-price p {
+  background-color: var(--secondary);
+  color: var(--color-black);
+  padding: 5px;
+  border-radius: 0 0 5px 5px;
+}
+
+/* ------------------------------ Page:BookList ----------------------------- */
+.booklist-container {
+  display: grid;
+  row-gap: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.ranking-booklist {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 30px;
+  background-color: var(--bg-white);
+  box-shadow: var(--shadow-box);
+  padding: 30px;
+  max-width: 600px;
+  border-radius: 14px;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+}
+
+.ranking-button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.ranking-button-container p {
+  padding: 0 10px;
+  font-size: 1.4rem;
+}
+.ranking-button {
+  display: flex;
+  gap: 5px;
+  width: 50px;
+  flex-direction: column;
+}
+.ranking-button button {
+  border-radius: 30px;
+  padding: 5px;
+}
+.ranking-booklist a {
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: underline;
+}
+/* ----------------------------- Page: BookPage ----------------------------- */
+.bookpage-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  background-color: var(--secondary);
+  gap: 10px;
+}
+.bookpage-container h1 {
+  color: var(--primary);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.book-tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+}
+.book-tags {
+  background-color: var(--bg-color);
+  border-radius: 100px;
+  text-transform: uppercase;
+  padding: 12.5px 20px;
+}
+
+.book-page-paragraph {
+  line-height: 1.6;
+}
+/* ------------------------------- Page: Home ------------------------------- */
+.home-page {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+}
+/* -------------------------------- Page:FAQ -------------------------------- */
+
+.faq-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 60px;
+}
+.faq-page h1 {
+  font-size: 2rem;
+  padding: 0 0 16px 0;
+}
+.faq-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+.faq-text p {
+  max-width: 70%;
+  padding: 16px;
+  font-size: 1.25rem;
+  text-align: left;
+  text-indent: 40px;
+}
+
+.faq-image {
+  width: 80%;
+  height: 350px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/* --------------------------- Media Query: 768px --------------------------- */
+@media screen and (max-width: 768px) {
+  nav {
+    padding-bottom: 10px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-desktop-menu {
+    display: none;
+    height: 0px;
+  }
+
+  .nav-mobile-menu {
+    display: flex;
+    background-color: var(--primary);
+    color: rgb(255, 255, 255);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100vw;
+    height: calc(100vh - 85px);
+    margin-top: 10px;
+  }
+
+  .nav-mobile-menu ul {
+    flex-direction: column;
+    scroll-snap-type: y mandatory;
+    align-items: center;
+  }
+  .nav-mobile-menu ul a {
+    font-size: 2rem;
+    text-transform: uppercase;
+    scroll-snap-align: start;
+    line-height: 3rem;
+  }
+  .nav-mobile-menu ul li {
+    font-weight: 500;
+    color: var(--color-black);
+    text-decoration: none;
+    padding: 7.5px 10px;
+    background-color: var(--bg);
+  }
+
+  /* -------------------------------- BookPage -------------------------------- */
+  .bookpage-container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  /* --------------------------------- Footer --------------------------------- */
+  .faq-text p {
+    max-width: 100%;
+    padding: 16px;
+    font-size: 1.25rem;
+    text-align: left;
+    text-indent: 40px;
+  }
+  .faq-text p:nth-child(1) {
+    text-indent: 0px;
+  }
+}
