@@ -19,7 +19,7 @@ function BookPage() {
       })
       .catch((error) => {
         setLoading(false);
-        setError(error.message);
+        setError(`${error.message} - ${error.response?.data?.message}`);
       });
   }, [bookpage]);
   if (loading) {

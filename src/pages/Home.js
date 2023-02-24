@@ -12,14 +12,14 @@ function Home() {
   const { bookpage } = useParams();
   useEffect(() => {
     axios
-      .get(`https://mantsu-v0-api.onrender.com/api/booklist/`)
+      .get(`/api/booklist/`)
       .then((response) => {
         setBookCollection(response.data);
         setLoading(false);
       })
       .catch((error) => {
         setLoading(false);
-        setError(error.message);
+        setError(`${error.message} - ${error.response?.data?.message}`);
       });
   }, [bookpage]);
   if (loading) {
