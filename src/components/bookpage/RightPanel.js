@@ -13,7 +13,9 @@ function RightPanel({ book }) {
 
   useEffect(() => {
     const loadComments = async () => {
-      const response = await axios.get(`/api/booklist/${bookpage}/comment`);
+      const response = await axios.get(
+        `https://mantsu-v0-api.onrender.com/api/booklist/${bookpage}/comment`
+      );
       const newComments = response.data;
       setBookdata(newComments);
     };
@@ -26,11 +28,14 @@ function RightPanel({ book }) {
       alert("Please enter a comment");
       return;
     }
-    const response = await axios.post(`/api/booklist/${bookpage}/comment`, {
-      postedBy: name,
-      comment: comment,
-      id: uuidv4(),
-    });
+    const response = await axios.post(
+      `https://mantsu-v0-api.onrender.com/api/booklist/${bookpage}/comment`,
+      {
+        postedBy: name,
+        comment: comment,
+        id: uuidv4(),
+      }
+    );
     const newComments = response.data;
     setPostComment(newComments);
     setName("");
@@ -39,7 +44,7 @@ function RightPanel({ book }) {
 
   const handleDelete = async (id) => {
     const { data: newComments } = await axios.delete(
-      `/api/booklist/${bookpage}/comment/${id}`
+      `https://mantsu-v0-api.onrender.com/api/booklist/${bookpage}/comment/${id}`
     );
     setBookdata(newComments);
   };

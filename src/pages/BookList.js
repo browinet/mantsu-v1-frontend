@@ -9,7 +9,9 @@ function BookList() {
 
   useEffect(() => {
     const loadBooklist = async () => {
-      const response = await axios.get("/api/booklist/");
+      const response = await axios.get(
+        "https://mantsu-v0-api.onrender.com/api/booklist/"
+      );
       const newBooklist = response.data;
       setBooklist(newBooklist);
     };
@@ -17,13 +19,17 @@ function BookList() {
   }, [votes]);
 
   const addUpvote = async (booklist) => {
-    const response = await axios.put(`/api/booklist/upvote/${booklist}`);
+    const response = await axios.put(
+      `https://mantsu-v0-api.onrender.com/api/booklist/upvote/${booklist}`
+    );
     const newBooklist = response.data;
     setVotes(newBooklist);
   };
 
   const addDownvote = async (booklist) => {
-    const response = await axios.put(`/api/booklist/downvote/${booklist}`);
+    const response = await axios.put(
+      `https://mantsu-v0-api.onrender.com/api/booklist/downvote/${booklist}`
+    );
     const newBooklist = response.data;
     setVotes(newBooklist);
   };
