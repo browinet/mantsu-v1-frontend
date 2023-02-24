@@ -13,9 +13,7 @@ function RightPanel({ book }) {
 
   useEffect(() => {
     const loadComments = async () => {
-      const response = await axios.get(
-        `https://mantsu-v0-api.onrender.com/api/booklist/${bookpage}/comment`
-      );
+      const response = await axios.get(`/api/booklist/${bookpage}/comment`);
       const newComments = response.data;
       setBookdata(newComments);
     };

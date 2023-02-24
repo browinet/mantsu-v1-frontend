@@ -10,7 +10,7 @@ function MiddlePanel({ book }) {
   const { bookpage } = useParams();
   useEffect(() => {
     axios
-      .get(`https://mantsu-v0-api.onrender.com/api/booklist/${bookpage}`)
+      .get(`/api/booklist/${bookpage}`)
       .then((response) => {
         setBookCollection(response.data);
         setLoading(false);

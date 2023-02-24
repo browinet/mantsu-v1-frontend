@@ -12,7 +12,7 @@ function BookPage() {
   const { bookpage } = useParams();
   useEffect(() => {
     axios
-      .get(`https://mantsu-v0-api.onrender.com/api/booklist/${bookpage}`)
+      .get(`/api/booklist/${bookpage}`)
       .then((response) => {
         setBook(response.data);
         setLoading(false);

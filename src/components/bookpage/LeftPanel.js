@@ -26,7 +26,7 @@ function LeftPanel({ book }) {
       </div>
       <div className="lp-container">
         <h4>Year</h4>
-        <h3>{book.year}</h3>
+        <h3>{book.year}</h3>{" "}
       </div>
 
       <p></p>
