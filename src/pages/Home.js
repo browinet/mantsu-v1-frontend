@@ -9,7 +9,7 @@ function Home() {
   const [bookCollection, setBookCollection] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const { bookpage } = useParams();
   useEffect(() => {
     axios
       .get(`https://mantsu-v0-api.onrender.com/api/booklist/`)
@@ -21,7 +21,7 @@ function Home() {
         setLoading(false);
         setError(error.message);
       });
-  }, [loading]);
+  }, [bookpage]);
   if (loading) {
     return <div>Loading...</div>;
   }
