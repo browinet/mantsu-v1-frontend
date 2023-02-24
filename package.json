@@ -1,4 +1,5 @@
 {
+   "proxy":"https://mantsu-v0-api.onrender.com",
   "name": "mantsu-v1-frontend",
   "version": "0.1.0",
   "private": true,
