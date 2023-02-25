@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import VolumeCollection from "../VolumeCollection";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import API from "../../api";
 
 function MiddlePanel({ book }) {
   const [bookCollection, setBookCollection] = useState();
@@ -10,7 +11,7 @@ function MiddlePanel({ book }) {
   const { bookpage } = useParams();
   useEffect(() => {
     axios
-      .get(`https://mantsu-v0-api.onrender.com/api/booklist/${bookpage}`)
+      .get(`${API}/api/booklist/${bookpage}`)
       .then((response) => {
         setBookCollection(response.data);
         setLoading(false);

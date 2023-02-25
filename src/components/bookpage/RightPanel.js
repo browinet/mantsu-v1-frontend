@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import API from "../../api";
 import { useParams } from "react-router-dom";
-import { v4 as uuidv4 } from "uuid";
 
 function RightPanel({ book }) {
   const [name, setName] = useState(null);
@@ -13,9 +13,7 @@ function RightPanel({ book }) {
 
   useEffect(() => {
     const loadComments = async () => {
-      const response = await axios.get(
-        `https://mantsu-v0-api.onrender.com/api/booklist/${bookpage}/comment`
-      );
+      const response = await axios.get(`${API}/api/booklist/${bookpage}`);
       const newComments = response.data;
       setBookdata(newComments);
     };
@@ -29,11 +27,10 @@ function RightPanel({ book }) {
       return;
     }
     const response = await axios.post(
-      `https://mantsu-v0-api.onrender.com/api/booklist/${bookpage}/comment`,
+      `${API}/api/booklist/${bookpage}/comment`,
       {
         postedBy: name,
         comment: comment,
-        id: uuidv4(),
       }
     );
     const newComments = response.data;
@@ -41,12 +38,11 @@ function RightPanel({ book }) {
     setName("");
     setComment("");
   };
-
   const handleDelete = async (id) => {
     const { data: newComments } = await axios.delete(
-      `https://mantsu-v0-api.onrender.com/api/booklist/${bookpage}/comment/${id}`
+      `${API}/api/booklist/${bookpage}/comment/${id}`
     );
-    setBookdata(newComments);
+    setPostComment(newComments);
   };
 
   return (

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
+import API from "../api";
 function BookList() {
   const [booklist, setBooklist] = useState();
 
@@ -9,9 +9,7 @@ function BookList() {
 
   useEffect(() => {
     const loadBooklist = async () => {
-      const response = await axios.get(
-        "https://mantsu-v0-api.onrender.com/api/booklist/"
-      );
+      const response = await axios.get(`${API}/api/booklist/`);
       const newBooklist = response.data;
       setBooklist(newBooklist);
     };
@@ -19,16 +17,14 @@ function BookList() {
   }, [votes]);
 
   const addUpvote = async (booklist) => {
-    const response = await axios.put(
-      `https://mantsu-v0-api.onrender.com/api/booklist/upvote/${booklist}`
-    );
+    const response = await axios.put(`${API}/api/booklist/${booklist}/upvote`);
     const newBooklist = response.data;
     setVotes(newBooklist);
   };
 
   const addDownvote = async (booklist) => {
     const response = await axios.put(
-      `https://mantsu-v0-api.onrender.com/api/booklist/downvote/${booklist}`
+      `${API}/api/booklist/${booklist}/downvote/`
     );
     const newBooklist = response.data;
     setVotes(newBooklist);

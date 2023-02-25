@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import API from "../api";
 import LeftPanel from "../components/bookpage/LeftPanel";
 import MiddlePanel from "../components/bookpage/MiddlePanel";
 import RightPanel from "../components/bookpage/RightPanel";
@@ -12,14 +13,14 @@ function BookPage() {
   const { bookpage } = useParams();
   useEffect(() => {
     axios
-      .get(`https://mantsu-v0-api.onrender.com/api/booklist/${bookpage}`)
+      .get(`${API}/api/booklist/${bookpage}`)
       .then((response) => {
         setBook(response.data);
         setLoading(false);
       })
       .catch((error) => {
         setLoading(false);
-        setError(`${error.message} - ${error.response?.data?.message}`);
+        setError(error.message);
       });
   }, [bookpage]);
   if (loading) {

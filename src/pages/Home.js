@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-
+import API from "../api";
 import Banner from "../components/Banner";
 import VolumeCollection from "../components/VolumeCollection";
 
@@ -9,10 +9,12 @@ function Home() {
   const [bookCollection, setBookCollection] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
   const { bookpage } = useParams();
+
   useEffect(() => {
     axios
-      .get(`https://mantsu-v0-api.onrender.com/api/booklist/`)
+      .get(`${API}/api/booklist`)
       .then((response) => {
         setBookCollection(response.data);
         setLoading(false);
